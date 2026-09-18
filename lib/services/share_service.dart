@@ -19,7 +19,7 @@ class ShareService {
     // Header
     buffer.writeln("🧾 *${shop.shopName.toUpperCase()}*");
     if (shop.ownerName.isNotEmpty) {
-      buffer.writeln("👤 Malik: ${shop.ownerName}");
+      buffer.writeln("👤 Owner: ${shop.ownerName}");
     }
     if (shop.phone.isNotEmpty) {
       buffer.writeln("📞 Mobile: +91 ${shop.phone}");
@@ -31,7 +31,7 @@ class ShareService {
       buffer.writeln("👤 *Customer:* ${bill.customerName}");
     }
     buffer.writeln("───────────────────");
-    buffer.writeln("*SAMAN / ITEMS:*");
+    buffer.writeln("*ITEMS:*");
 
     int index = 1;
     for (final item in bill.items) {
@@ -51,7 +51,7 @@ class ShareService {
     }
     buffer.writeln("💰 *GRAND TOTAL: ${Formatters.formatCurrency(bill.grandTotal)}*");
     buffer.writeln("───────────────────");
-    buffer.writeln("🙏 *Dhanyawad! Phir Aaiye*");
+    buffer.writeln("🙏 *Thank You! Visit Again*");
     if (shop.upiId.isNotEmpty) {
       buffer.writeln("💳 *UPI Pay:* ${shop.upiId}");
     }

@@ -130,7 +130,7 @@ class _ItemCardState extends State<ItemCard> {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  'Saman Details',
+                  'Item Details',
                   style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -160,7 +160,7 @@ class _ItemCardState extends State<ItemCard> {
 
             const SizedBox(height: 10),
 
-            // Row 2: Saman Ka Naam (Autocomplete or TextField)
+            // Row 2: Item Name (Autocomplete or TextField)
             TextFormField(
               controller: _nameController,
               onChanged: widget.onNameChanged,
@@ -171,7 +171,7 @@ class _ItemCardState extends State<ItemCard> {
                 color: textPrimary,
               ),
               decoration: InputDecoration(
-                hintText: 'Saman Ka Naam (e.g., Chawal, Cheeni)',
+                hintText: 'Item Name (e.g., Rice, Sugar, Soap)',
                 hintStyle: GoogleFonts.poppins(
                   color: isDark ? AppColors.textTertiaryDark : AppColors.textTertiary,
                   fontSize: 13,
@@ -195,7 +195,7 @@ class _ItemCardState extends State<ItemCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Rate (Price)',
+                        'Price / Rate',
                         style: GoogleFonts.poppins(
                           fontSize: 11,
                           fontWeight: FontWeight.w600,
@@ -242,7 +242,7 @@ class _ItemCardState extends State<ItemCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Quantity (Qty)',
+                        'Quantity',
                         style: GoogleFonts.poppins(
                           fontSize: 11,
                           fontWeight: FontWeight.w600,

@@ -96,8 +96,8 @@ class _PdfPreviewScreenState extends State<PdfPreviewScreen> {
               Expanded(
                 child: Text(
                   success
-                      ? 'PDF Bill #${widget.bill.billNumber} Download Ho Gaya!'
-                      : 'Download fail ho gaya. Kripya dobara try karein.',
+                      ? 'Bill #${widget.bill.billNumber} PDF downloaded successfully!'
+                      : 'Download failed. Please try again.',
                   style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
                 ),
               ),
@@ -173,7 +173,7 @@ class _PdfPreviewScreenState extends State<PdfPreviewScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Bill PDF Ban Rahi Hai...',
+                    'Generating PDF Invoice...',
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -270,14 +270,14 @@ class _PdfPreviewScreenState extends State<PdfPreviewScreen> {
 
                         const SizedBox(height: 10),
 
-                        // Button 3: [Naya Bill Banao (New Bill)]
+                        // Button 3: [Create New Bill]
                         SizedBox(
                           height: 48,
                           child: OutlinedButton.icon(
                             onPressed: _startNewBill,
                             icon: Icon(Icons.add_circle_outline_rounded, color: primaryColor, size: 20),
                             label: Text(
-                              '+ Naya Bill Banayein (New Bill)',
+                              '+ Create New Bill',
                               style: GoogleFonts.poppins(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700,

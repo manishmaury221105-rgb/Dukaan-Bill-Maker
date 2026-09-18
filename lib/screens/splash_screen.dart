@@ -162,7 +162,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     ),
                     const SizedBox(width: 10),
                     Text(
-                      'Made for Indian Dukandars 🇮🇳',
+                      'Fast & Easy Billing App',
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w500,

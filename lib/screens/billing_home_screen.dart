@@ -67,7 +67,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
     if (billing.validItemCount == 0) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Kripya pehle kam se kam 1 saman ka naam dalein'),
+          content: Text('Please enter at least one item name'),
           backgroundColor: AppColors.danger,
         ),
       );
@@ -103,17 +103,17 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
       builder: (ctx) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: Text(
-          'Naya Bill Shuru Karein?',
+          'Start New Bill?',
           style: GoogleFonts.poppins(fontWeight: FontWeight.w700, fontSize: 16),
         ),
         content: Text(
-          'Kya aap vartaman bill clear karke naya bill banana chahte hain?',
+          'Are you sure you want to clear current items and start a new bill?',
           style: GoogleFonts.poppins(fontSize: 14),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
-            child: Text('Nahi', style: GoogleFonts.poppins(color: AppColors.textSecondary)),
+            child: Text('Cancel', style: GoogleFonts.poppins(color: AppColors.textSecondary)),
           ),
           ElevatedButton(
             onPressed: () {
@@ -129,7 +129,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
               backgroundColor: AppColors.primary,
               minimumSize: const Size(100, 42),
             ),
-            child: Text('Haan, Naya Bill', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w600)),
+            child: Text('Yes, New Bill', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w600)),
           ),
         ],
       ),
@@ -211,7 +211,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                   ),
                   if (shop.ownerName.isNotEmpty)
                     Text(
-                      'Malik: ${shop.ownerName} • ${Formatters.formatDate(billingProvider.date)}',
+                      'Owner: ${shop.ownerName} • ${Formatters.formatDate(billingProvider.date)}',
                       style: GoogleFonts.poppins(
                         fontSize: 11,
                         fontWeight: FontWeight.w400,
@@ -227,7 +227,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
           // Dark Mode Toggle Button
           IconButton(
             onPressed: () => shopProvider.toggleDarkMode(),
-            tooltip: isDark ? 'Light Mode Karein' : 'Dark Mode Karein',
+            tooltip: isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode',
             icon: AnimatedSwitcher(
               duration: const Duration(milliseconds: 250),
               transitionBuilder: (child, anim) => RotationTransition(turns: anim, child: ScaleTransition(scale: anim, child: child)),
@@ -241,7 +241,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
           // Clear / New Bill Action
           IconButton(
             onPressed: _confirmNewBill,
-            tooltip: 'Naya Bill',
+            tooltip: 'New Bill',
             icon: Icon(Icons.refresh_rounded, color: textSecondaryColor),
           ),
           // History Action
@@ -291,7 +291,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          _showCustomerFields ? 'Grahak Details Chhupayein' : '+ Grahak Ki Jankari Jodein (Optional)',
+                          _showCustomerFields ? 'Hide Customer Details' : '+ Add Customer Details (Optional)',
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -319,7 +319,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                           textCapitalization: TextCapitalization.words,
                           style: GoogleFonts.poppins(fontSize: 13, color: textPrimaryColor),
                           decoration: InputDecoration(
-                            hintText: 'Grahak Ka Naam',
+                            hintText: 'Customer Name',
                             prefixIcon: Icon(Icons.badge_outlined, size: 16, color: textSecondaryColor),
                             contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                             isDense: true,
@@ -338,7 +338,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                             LengthLimitingTextInputFormatter(10),
                           ],
                           decoration: InputDecoration(
-                            hintText: 'WhatsApp / Mobile',
+                            hintText: 'Mobile / WhatsApp',
                             prefixIcon: Icon(Icons.phone_iphone_rounded, size: 16, color: textSecondaryColor),
                             contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                             isDense: true,
@@ -365,7 +365,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Saman Ki Suchi (${billingProvider.items.length})',
+                      'Item List (${billingProvider.items.length})',
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -403,7 +403,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
 
                 const SizedBox(height: 12),
 
-                // [+ Add Saman] Button
+                // [+ Add Item] Button
                 SizedBox(
                   height: 52,
                   child: OutlinedButton.icon(
@@ -413,7 +413,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                     },
                     icon: Icon(Icons.add_circle_outline_rounded, size: 22, color: primaryColor),
                     label: Text(
-                      '+ Add Saman (नया सामान जोड़ें)',
+                      '+ Add Item',
                       style: GoogleFonts.poppins(
                         fontSize: 15,
                         fontWeight: FontWeight.w700,
@@ -492,7 +492,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              'Discount (छूट):',
+                              'Discount:',
                               style: GoogleFonts.poppins(
                                 fontSize: 11,
                                 fontWeight: FontWeight.w500,
@@ -560,7 +560,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                         ),
                       ),
                       Text(
-                        '(${billingProvider.validItemCount} Saman)',
+                        '(${billingProvider.validItemCount} ${billingProvider.validItemCount == 1 ? 'Item' : 'Items'})',
                         style: GoogleFonts.poppins(
                           fontSize: 11,
                           color: isDark ? AppColors.textTertiaryDark : AppColors.textTertiary,
@@ -582,7 +582,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
 
               const SizedBox(height: 12),
 
-              // 2 Big Buttons: [Preview Bill] and [PDF Banao]
+              // 2 Big Buttons: [Preview Bill] and [Generate PDF]
               Row(
                 children: [
                   // Button 1: [Preview Bill]
@@ -611,7 +611,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                   ),
                   const SizedBox(width: 12),
 
-                  // Button 2: [PDF Banao]
+                  // Button 2: [Generate PDF]
                   Expanded(
                     child: SizedBox(
                       height: 52,
@@ -620,7 +620,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                           if (billingProvider.validItemCount == 0) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                content: Text('Kripya pehle kam se kam 1 saman dalein'),
+                                content: Text('Please add at least 1 item before generating PDF'),
                                 backgroundColor: AppColors.danger,
                               ),
                             );
@@ -631,7 +631,7 @@ class _BillingHomeScreenState extends State<BillingHomeScreen> {
                         },
                         icon: const Icon(Icons.picture_as_pdf_rounded, size: 20, color: Colors.white),
                         label: Text(
-                          'PDF Banao',
+                          'Generate PDF',
                           style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w700,

@@ -93,7 +93,7 @@ class PdfService {
                                 if (shop.ownerName.isNotEmpty) ...[
                                   pw.SizedBox(height: 3),
                                   pw.Text(
-                                    'Malik: ${shop.ownerName}',
+                                    'Owner: ${shop.ownerName}',
                                     style: pw.TextStyle(
                                       fontSize: 11,
                                       fontWeight: pw.FontWeight.bold,
@@ -212,7 +212,7 @@ class PdfService {
                   child: pw.Row(
                     children: [
                       pw.Text(
-                        'Grahak (Customer): ',
+                        'Customer: ',
                         style: pw.TextStyle(fontSize: 10, fontWeight: pw.FontWeight.bold, color: secondaryColor),
                       ),
                       pw.Text(
@@ -297,7 +297,7 @@ class PdfService {
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             children: [
                               pw.Text(
-                                'Dhanyawad! Phir Aaiye - Thank You! Visit Again',
+                                'Thank You! Visit Again',
                                 style: pw.TextStyle(
                                   fontSize: 10,
                                   fontWeight: pw.FontWeight.bold,
@@ -382,7 +382,7 @@ class PdfService {
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
                   pw.Text(
-                    'Generated via Dukaan Bill Maker App',
+                    'Generated via Dukaan Bill Maker',
                     style: const pw.TextStyle(fontSize: 7, color: textGray),
                   ),
                   pw.Text(
@@ -413,7 +413,7 @@ class PdfService {
       border: pw.TableBorder.all(color: borderGray, width: 0.8),
       columnWidths: const {
         0: pw.FlexColumnWidth(0.8), // Sr.
-        1: pw.FlexColumnWidth(3.5), // Saman Ka Naam
+        1: pw.FlexColumnWidth(3.5), // Item Description
         2: pw.FlexColumnWidth(1.2), // Unit
         3: pw.FlexColumnWidth(1.2), // Qty
         4: pw.FlexColumnWidth(1.5), // Rate
@@ -425,7 +425,7 @@ class PdfService {
           decoration: pw.BoxDecoration(color: primaryColor),
           children: [
             _buildTableHeaderCell('Sr.'),
-            _buildTableHeaderCell('Saman (Item Description)', align: pw.TextAlign.left),
+            _buildTableHeaderCell('Item Description', align: pw.TextAlign.left),
             _buildTableHeaderCell('Unit'),
             _buildTableHeaderCell('Qty'),
             _buildTableHeaderCell('Rate (Rs.)'),

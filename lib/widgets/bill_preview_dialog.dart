@@ -105,7 +105,7 @@ class BillPreviewModal extends StatelessWidget {
                           if (shop.ownerName.isNotEmpty) ...[
                             const SizedBox(height: 2),
                             Text(
-                              'Malik: ${shop.ownerName}',
+                              'Owner: ${shop.ownerName}',
                               style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
@@ -157,7 +157,7 @@ class BillPreviewModal extends StatelessWidget {
 
                     // Items List
                     Text(
-                      'Saman List',
+                      'Items',
                       style: GoogleFonts.poppins(
                         fontSize: 13,
                         fontWeight: FontWeight.w700,
@@ -296,7 +296,7 @@ class BillPreviewModal extends StatelessWidget {
                     // Footer Thank you note
                     Center(
                       child: Text(
-                        '🙏 Dhanyawad! Phir Aaiye 🙏\n(धन्यवाद! फिर आईये)',
+                        '🙏 Thank You! Visit Again 🙏',
                         textAlign: TextAlign.center,
                         style: GoogleFonts.poppins(
                           fontSize: 12,
@@ -315,7 +315,7 @@ class BillPreviewModal extends StatelessWidget {
 
           // Bottom Action Button
           CustomButton(
-            text: 'PDF Banao & Share Karein',
+            text: 'Generate PDF & Share',
             icon: Icons.picture_as_pdf_rounded,
             onPressed: () {
               Navigator.pop(context);

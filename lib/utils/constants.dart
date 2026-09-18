@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppConstants {
   static const String appName = "Dukaan Bill Maker";
-  static const String appTagline = "Aasan, Tez aur Vishwasniya Billing";
+  static const String appTagline = "Simple, Fast & Reliable Billing";
   static const String currencySymbol = "₹";
   
   // Units for Kirana / Retail shops
@@ -19,40 +19,40 @@ class AppConstants {
 
   // Theme Color Presets for Shopkeepers
   static const List<Map<String, dynamic>> themeColorOptions = [
-    {'name': 'Dukaan Green', 'color': Color(0xFF00A859)},
+    {'name': 'Emerald Green', 'color': Color(0xFF00A859)},
     {'name': 'Royal Blue', 'color': Color(0xFF2563EB)},
     {'name': 'Midnight Navy', 'color': Color(0xFF0F172A)},
     {'name': 'Crimson Red', 'color': Color(0xFFDC2626)},
-    {'name': 'Saffron Orange', 'color': Color(0xFFEA580C)},
+    {'name': 'Amber Orange', 'color': Color(0xFFEA580C)},
     {'name': 'Deep Purple', 'color': Color(0xFF7C3AED)},
     {'name': 'Teal', 'color': Color(0xFF0D9488)},
-    {'name': 'Emerald', 'color': Color(0xFF059669)},
+    {'name': 'Forest Green', 'color': Color(0xFF059669)},
   ];
 
-  // Common Indian Kirana & Retail item suggestions
-  static const List<String> commonSamanSuggestions = [
-    'Aata (आटा)',
-    'Chawal (चावल)',
-    'Toor Daal (तूर दाल)',
-    'Moong Daal (मूंग दाल)',
-    'Cheeni (चीनी)',
-    'Sarson Tel (सरसों तेल)',
-    'Refined Tel (रिफाइंड तेल)',
-    'Chai Patti (चाय पत्ती)',
-    'Namak (नमक)',
-    'Haldi Powder (हल्दी पाउडर)',
-    'Mirchi Powder (मिर्ची पाउडर)',
-    'Dhaniya Powder (धनिया पाउडर)',
-    'Garam Masala (गरम मसाला)',
-    'Doodh (दूध)',
-    'Dahi (दही)',
-    'Paneer (पनीर)',
-    'Ghee (घी)',
-    'Biskut (बिस्कुट)',
-    'Sabun (साबुन)',
-    'Surf / Detergent (सर्फ)',
-    'Shampoo (शैम्पू)',
-    'Toothpaste (पेस्ट)',
+  // Common Retail & Grocery item suggestions
+  static const List<String> commonItemSuggestions = [
+    'Wheat Flour (Atta)',
+    'Basmati Rice',
+    'Toor Dal',
+    'Moong Dal',
+    'Sugar',
+    'Mustard Oil',
+    'Refined Sunflower Oil',
+    'Tea Powder (Chai)',
+    'Table Salt',
+    'Turmeric Powder',
+    'Red Chilli Powder',
+    'Coriander Powder',
+    'Garam Masala',
+    'Milk (1L)',
+    'Curd / Yogurt',
+    'Fresh Paneer',
+    'Pure Ghee',
+    'Biscuits / Cookies',
+    'Bath Soap',
+    'Detergent Powder',
+    'Shampoo Bottle',
+    'Toothpaste',
   ];
 
   // Shared preferences keys

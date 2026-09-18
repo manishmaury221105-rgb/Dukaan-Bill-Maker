@@ -81,7 +81,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Logo upload me error: $e'),
+            content: Text('Error uploading logo: $e'),
             backgroundColor: AppColors.danger,
           ),
         );
@@ -102,7 +102,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Dukaan Ka Logo Upload Karein',
+                'Upload Shop Logo',
                 style: GoogleFonts.poppins(
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
@@ -119,7 +119,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   child: const Icon(Icons.photo_library_rounded, color: AppColors.primary),
                 ),
-                title: Text('Gallery se chunein', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+                title: Text('Choose from Gallery', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
                 onTap: () {
                   Navigator.pop(ctx);
                   _pickImage(ImageSource.gallery);
@@ -134,7 +134,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ),
                   child: const Icon(Icons.camera_alt_rounded, color: AppColors.primary),
                 ),
-                title: Text('Camera se photo kheenche', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+                title: Text('Take Photo with Camera', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
                 onTap: () {
                   Navigator.pop(ctx);
                   _pickImage(ImageSource.camera);
@@ -150,7 +150,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     ),
                     child: const Icon(Icons.delete_outline_rounded, color: AppColors.danger),
                   ),
-                  title: Text('Logo Hatayein (Remove)', style: GoogleFonts.poppins(fontWeight: FontWeight.w600, color: AppColors.danger)),
+                  title: Text('Remove Logo', style: GoogleFonts.poppins(fontWeight: FontWeight.w600, color: AppColors.danger)),
                   onTap: () {
                     Navigator.pop(ctx);
                     setState(() => _logoBase64 = '');
@@ -192,7 +192,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (widget.isEditMode) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Dukaan Details Safaltapoorvak Update Ho Gayi!'),
+          content: Text('Shop details updated successfully!'),
           backgroundColor: AppColors.primary,
         ),
       );
@@ -219,7 +219,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: widget.isEditMode
           ? AppBar(
-              title: const Text('Dukaan Details & Settings'),
+              title: const Text('Shop Details & Settings'),
               backgroundColor: surfaceColor,
               elevation: 0,
             )
@@ -276,7 +276,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Dukaan Setup Karein',
+                                    'Set Up Your Shop',
                                     style: GoogleFonts.poppins(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w700,
@@ -284,7 +284,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     ),
                                   ),
                                   Text(
-                                    'Dukaan details aur theme customize karein',
+                                    'Customize shop details and invoice theme',
                                     style: GoogleFonts.poppins(
                                       fontSize: 12,
                                       color: Colors.white.withValues(alpha: 0.9),
@@ -357,7 +357,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Dukaan Ka Logo (Optional)',
+                              'Shop Logo (Optional)',
                               style: GoogleFonts.poppins(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,
@@ -365,7 +365,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             ),
                             Text(
-                              'Bill invoice par logo print hoga',
+                              'Logo will appear on bills and invoices',
                               style: GoogleFonts.poppins(
                                 fontSize: 11,
                                 color: textSecondary,
@@ -391,7 +391,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                     ),
                                     const SizedBox(width: 4),
                                     Text(
-                                      _logoBase64.isNotEmpty ? 'Logo Badlein' : 'Upload Logo',
+                                      _logoBase64.isNotEmpty ? 'Change Logo' : 'Upload Logo',
                                       style: GoogleFonts.poppins(
                                         fontSize: 11,
                                         fontWeight: FontWeight.w600,
@@ -422,7 +422,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  'Apni dukaan ka manpasand color chunein',
+                  'Select your preferred invoice theme color',
                   style: GoogleFonts.poppins(
                     fontSize: 11,
                     color: textSecondary,
@@ -507,7 +507,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Dark Mode (डार्क मोड)',
+                              'Dark Mode',
                               style: GoogleFonts.poppins(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,
@@ -515,7 +515,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             ),
                             Text(
-                              isDark ? 'Dark theme active hai' : 'Raat me aasan billing ke liye',
+                              isDark ? 'Dark theme is active' : 'Enable for comfortable night viewing',
                               style: GoogleFonts.poppins(
                                 fontSize: 11,
                                 color: textSecondary,
@@ -539,7 +539,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                 // ================= MANDATORY DETAILS =================
                 Text(
-                  'Zaroori Jankari (Mandatory)',
+                  'Required Information',
                   style: GoogleFonts.poppins(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -548,32 +548,32 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 const SizedBox(height: 12),
 
-                // Input 1: Dukaan Ka Naam
+                // Input 1: Shop Name
                 CustomTextField(
-                  label: 'Dukaan Ka Naam *',
-                  hint: 'e.g., Shree Ganesh Kirana Store',
+                  label: 'Shop Name *',
+                  hint: 'e.g., Ganesh Supermarket & Retail',
                   controller: _shopNameController,
                   prefixIcon: Icons.store_rounded,
                   textCapitalization: TextCapitalization.words,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Kripya Dukaan Ka Naam Dalein';
+                      return 'Please enter shop name';
                     }
                     return null;
                   },
                 ),
                 const SizedBox(height: 14),
 
-                // Input 2: Malik Ka Naam
+                // Input 2: Owner Name
                 CustomTextField(
-                  label: 'Malik Ka Naam (Owner Name) *',
+                  label: 'Owner Name *',
                   hint: 'e.g., Ramesh Kumar Maurya',
                   controller: _ownerNameController,
                   prefixIcon: Icons.person_outline_rounded,
                   textCapitalization: TextCapitalization.words,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Kripya Malik Ka Naam Dalein';
+                      return 'Please enter owner name';
                     }
                     return null;
                   },
@@ -616,10 +616,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ],
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Kripya Mobile Number Dalein';
+                      return 'Please enter mobile number';
                     }
                     if (value.trim().length < 10) {
-                      return 'Kripya Sahi 10-Digit Mobile Number Dalein';
+                      return 'Please enter a valid 10-digit mobile number';
                     }
                     return null;
                   },
@@ -631,7 +631,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Row(
                   children: [
                     Text(
-                      'Anya Jankari (Optional)',
+                      'Additional Details (Optional)',
                       style: GoogleFonts.poppins(
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
@@ -646,7 +646,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
-                        'Invoice pe aayega',
+                        'Printed on bill',
                         style: GoogleFonts.poppins(
                           fontSize: 11,
                           fontWeight: FontWeight.w600,
@@ -658,9 +658,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 const SizedBox(height: 12),
 
-                // Input 4: Shop Address (Replacing 'Pata' with 'Shop Address')
+                // Input 4: Shop Address
                 CustomTextField(
-                  label: 'Shop Address (दुकान का पता)',
+                  label: 'Shop Address',
                   hint: 'e.g., Shop No. 12, Main Market, Varanasi',
                   controller: _addressController,
                   prefixIcon: Icons.location_on_outlined,
@@ -670,9 +670,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                 // Input 5: UPI ID
                 CustomTextField(
-                  label: 'UPI ID (QR Code Payment ke liye)',
-                  hint: 'e.g., 9876543210@paytm ya gpay',
-                  subLabel: 'Bill pe QR aayega',
+                  label: 'UPI ID (for QR Code Payment)',
+                  hint: 'e.g., 9876543210@upi or yourname@okaxis',
+                  subLabel: 'QR code on bill',
                   controller: _upiIdController,
                   prefixIcon: Icons.qr_code_rounded,
                   keyboardType: TextInputType.emailAddress,
@@ -681,7 +681,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                 // Input 6: GST Number
                 CustomTextField(
-                  label: 'GST Number (Agar hai toh)',
+                  label: 'GSTIN / Tax ID (Optional)',
                   hint: 'e.g., 07AAAAA0000A1Z5',
                   controller: _gstController,
                   prefixIcon: Icons.receipt_outlined,
@@ -692,7 +692,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                 // Save Button
                 CustomButton(
-                  text: widget.isEditMode ? 'Details & Theme Save Karein' : 'Save & Start (दुकान शुरू करें)',
+                  text: widget.isEditMode ? 'Save Details & Theme' : 'Save & Get Started',
                   icon: Icons.check_circle_outline_rounded,
                   isLoading: _isSaving,
                   onPressed: _handleSave,

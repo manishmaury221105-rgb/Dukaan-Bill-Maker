@@ -46,7 +46,7 @@ class BillHistoryScreen extends StatelessWidget {
             ),
             const SizedBox(height: 4),
             Text(
-              '${Formatters.formatDateTime(bill.date)} • ${bill.totalItemCount} Saman',
+              '${Formatters.formatDateTime(bill.date)} • ${bill.totalItemCount} ${bill.totalItemCount == 1 ? 'Item' : 'Items'}',
               style: GoogleFonts.poppins(fontSize: 12, color: AppColors.textSecondary),
             ),
             const SizedBox(height: 16),
@@ -64,7 +64,7 @@ class BillHistoryScreen extends StatelessWidget {
                 child: const Icon(Icons.picture_as_pdf_rounded, color: AppColors.primary),
               ),
               title: Text('View / Print / Share PDF', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
-              subtitle: Text('PDF dekhein ya WhatsApp par share karein', style: GoogleFonts.poppins(fontSize: 12)),
+              subtitle: Text('View, print or share on WhatsApp', style: GoogleFonts.poppins(fontSize: 12)),
               onTap: () {
                 Navigator.pop(ctx);
                 Navigator.push(
@@ -86,8 +86,8 @@ class BillHistoryScreen extends StatelessWidget {
                 ),
                 child: const Icon(Icons.edit_rounded, color: AppColors.accent),
               ),
-              title: Text('Bill Edit / Copy Karein', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
-              subtitle: Text('Saman badal kar naya bill banayein', style: GoogleFonts.poppins(fontSize: 12)),
+              title: Text('Edit / Duplicate Bill', style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+              subtitle: Text('Modify items and create a new bill', style: GoogleFonts.poppins(fontSize: 12)),
               onTap: () {
                 Navigator.pop(ctx);
                 final billing = Provider.of<BillingProvider>(context, listen: false);
@@ -106,8 +106,8 @@ class BillHistoryScreen extends StatelessWidget {
                 ),
                 child: const Icon(Icons.delete_outline_rounded, color: AppColors.danger),
               ),
-              title: Text('Bill Delete Karein', style: GoogleFonts.poppins(fontWeight: FontWeight.w600, color: AppColors.danger)),
-              subtitle: Text('History se permanent hatayein', style: GoogleFonts.poppins(fontSize: 12)),
+              title: Text('Delete Bill', style: GoogleFonts.poppins(fontWeight: FontWeight.w600, color: AppColors.danger)),
+              subtitle: Text('Permanently delete from history', style: GoogleFonts.poppins(fontSize: 12)),
               onTap: () {
                 Navigator.pop(ctx);
                 _confirmDeleteBill(context, bill.id, bill.billNumber);
@@ -125,8 +125,8 @@ class BillHistoryScreen extends StatelessWidget {
       context: context,
       builder: (ctx) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        title: Text('Bill #$billNo Delete Karein?', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
-        content: Text('Kya aap sach me ye bill delete karna chahte hain?', style: GoogleFonts.poppins(fontSize: 14)),
+        title: Text('Delete Bill #$billNo?', style: GoogleFonts.poppins(fontWeight: FontWeight.w700)),
+        content: Text('Are you sure you want to delete this bill?', style: GoogleFonts.poppins(fontSize: 14)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx),
@@ -137,7 +137,7 @@ class BillHistoryScreen extends StatelessWidget {
               Navigator.pop(ctx);
               Provider.of<HistoryProvider>(context, listen: false).deleteBill(id);
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Bill #$billNo delete ho gaya')),
+                SnackBar(content: Text('Bill #$billNo deleted')),
               );
             },
             style: ElevatedButton.styleFrom(backgroundColor: AppColors.danger),
@@ -183,9 +183,9 @@ class BillHistoryScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: StatCard(
-                              title: "Aaj Ki Bikri (Today)",
+                              title: "Today's Sales",
                               value: Formatters.formatCurrency(history.todaySales),
-                              subtitle: '${history.todayBillsCount} Bills aaj',
+                              subtitle: '${history.todayBillsCount} ${history.todayBillsCount == 1 ? 'bill today' : 'bills today'}',
                               icon: Icons.currency_rupee_rounded,
                               iconColor: primaryColor,
                               iconBgColor: AppColors.primaryLight,
@@ -194,7 +194,7 @@ class BillHistoryScreen extends StatelessWidget {
                           const SizedBox(width: 12),
                           Expanded(
                             child: StatCard(
-                              title: "Kul Bills (Total)",
+                              title: "Total Bills",
                               value: '${history.totalBillsCount}',
                               subtitle: 'Lifetime Bills',
                               icon: Icons.receipt_long_rounded,
@@ -211,7 +211,7 @@ class BillHistoryScreen extends StatelessWidget {
                         onChanged: history.setSearchQuery,
                         style: GoogleFonts.poppins(fontSize: 14, color: textPrimary),
                         decoration: InputDecoration(
-                          hintText: 'Bill No, Saman ya Grahak khojein...',
+                          hintText: 'Search by bill no, item, customer...',
                           prefixIcon: Icon(Icons.search_rounded, color: textSecondary, size: 20),
                           contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
                           isDense: true,
@@ -245,8 +245,8 @@ class BillHistoryScreen extends StatelessWidget {
                               const SizedBox(height: 16),
                               Text(
                                 history.searchQuery.isNotEmpty
-                                    ? 'Koi bill nahi mila'
-                                    : 'Abhi tak koi bill nahi bana hai',
+                                    ? 'No bills found'
+                                    : 'No bills created yet',
                                 style: GoogleFonts.poppins(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -255,7 +255,7 @@ class BillHistoryScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                'Naya bill banayein aur save karein',
+                                'Create and save your first bill',
                                 style: GoogleFonts.poppins(
                                   fontSize: 13,
                                   color: textSecondary,
@@ -327,7 +327,7 @@ class BillHistoryScreen extends StatelessWidget {
                                           Text(
                                             bill.customerName.isNotEmpty
                                                 ? bill.customerName
-                                                : '${bill.totalItemCount} Saman Items',
+                                                : '${bill.totalItemCount} ${bill.totalItemCount == 1 ? 'Item' : 'Items'}',
                                             style: GoogleFonts.poppins(
                                               fontSize: 14,
                                               fontWeight: FontWeight.w700,
